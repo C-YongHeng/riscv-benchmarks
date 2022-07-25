@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LINK_FLAGS="-static -nostdlib -nostartfiles -lm -lgcc -T ../include/link.ld"
+
+INCS="-I../include -I./"
+SOURCE=$(ls | grep .c$)
+echo Check out source file: ${SOURCE}
+
+echo "using next command to compile test:"
+echo $1-gcc ${INCS} $2 -o ../test.riscv ../include/crt.s ${SOURCE} ../include/syscall.c ${LINK_FLAGS}
+$1-gcc ${INCS} $2 -o ../test.riscv ../include/crt.s ${SOURCE} ../include/syscall.c ${LINK_FLAGS}
+
+$1-objdump -D ../test.riscv > ../test.dump
+$1-objcopy -O verilog ../test.riscv ../test.hex
