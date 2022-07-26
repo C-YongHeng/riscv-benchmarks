@@ -3,7 +3,7 @@
 # set your compiler options
 # riscv64-unknown-elf or riscv32-unknown-elf
 GCC_PREFIX = riscv64-unknown-elf
-GCC_FLAGS = "-march=rv64imc -O3 -static -fno-builtin-printf -fno-common -mcmodel=medany -nostdlib"
+GCC_FLAGS = "-march=rv64imc -O1 -fno-builtin-printf -fno-common -mcmodel=medany"
 
 # benchmark_name can be set as follow: 
 # HelloWorld Dhrystone CoreMark 

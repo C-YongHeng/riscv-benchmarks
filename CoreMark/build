@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+BASEDIR=$PWD
+CM_FOLDER=coremark
+
+cd $BASEDIR/$CM_FOLDER
+
+# run the compile
+echo "Start compilation"
+
+
+make compile PORT_DIR=../risc-v GCC_PREFIX="$1" GCC_FLAGS="$2"
+mv coremark.riscv ../../test.riscv
+
+$1-objdump -D ../../test.riscv > ../../test.dump
+$1-objcopy -O verilog ../../test.riscv ../../test.hex

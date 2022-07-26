@@ -1,10 +1,8 @@
 .file	"crt.s"
 
-.text
-	
-.global _start
-	
-.extern main
+	.section ".text.entry"
+	.global _start
+	.extern main
 
 _start:
 	la tp, _end + 63

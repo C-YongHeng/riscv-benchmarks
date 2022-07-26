@@ -4,11 +4,10 @@ ENTRY(_start)
 
 SECTIONS
 {
-  . = 0x00000000;
-  .text .  : { *(.text) }
-
-
-  .data .  : { *(.*data) *(.rodata*) *(.srodata*) }
+  . = 0x20080000;
+  .text.entry . : { *(.text.entry) }
+  .text . : { *(.text) }
+  .data . : { *(.*data) *(.rodata*) *(.srodata*) }
   .bss : { *(.bss) }
   _end = .;
 }
