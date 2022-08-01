@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+cp -r riscv/ ./embench-iot/config/
+cp ../include/* ./embench-iot/config/riscv/boards/generic/
+
+BASEDIR=$PWD
+CM_FOLDER=embench-iot
+
+cd $BASEDIR/$CM_FOLDER
+
+# run the compile
+echo "Start compilation"
+
+echo "Command: ./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv" --warmup-heat 0"
+
+./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv" --warmup-heat 0
+
+cd ../..
+
+rm -rf embench.riscv
+mkdir embench.riscv
+cp $BASEDIR/$CM_FOLDER/bd/src/*/*.riscv embench.riscv/
