@@ -13,9 +13,9 @@ cd $BASEDIR/$CM_FOLDER
 # run the compile
 echo "Start compilation"
 
-echo "Command: ./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv" --warmup-heat 0"
+echo "Command: ./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv" "
 
-./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv" --warmup-heat 0
+./build_all.py --arch riscv --chip generic --board generic --cc "$1-gcc" --cflags="-c $2" --clean --ld-output-pattern="-o {0}.riscv"
 
 cd ../..
 

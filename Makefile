@@ -3,11 +3,10 @@
 # set your compiler options
 # riscv64-unknown-elf or riscv32-unknown-elf
 GCC_PREFIX = riscv64-unknown-elf
-GCC_FLAGS = "-march=rv64imc -O1 -fno-builtin-printf -fno-common -mcmodel=medany"
+GCC_FLAGS = "-march=rv64imac -mabi=lp64 -O1 -fno-builtin-printf -fno-common -mcmodel=medany"
 
 # benchmark_name can be set as follow: 
-# HelloWorld Dhrystone CoreMark 
-# Embench/aha-mont64 Embench/crc32 Embench/cubic Embench/edn Embench/huffbench Embench/matmult-int Embench/minver Embench/nbody Embench/nettle-aes Embench/nettle-sha256 Embench/nsichneu Embench/picojpeg Embench/qrduino Embench/sglib-combined Embench/slre Embench/st Embench/statemate Embench/ud Embench/wikisort
+# HelloWorld Dhrystone CoreMark Embench
 benchmark_name ?= HelloWorld
 
 # Targets
